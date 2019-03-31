@@ -1,0 +1,13 @@
+<div class="file"
+  #fileElem>
+  <span *ngFor="let word of (text$ | async)?.split(' ')"
+    (dblclick)="selectWord($event)">
+    {{word}}
+  </span>
+<ng-container *ngIf="!!(synonims$ | async)">
+  <h1>Synonims:</h1>
+  <p *ngFor="let synonim of (synonims$ | async)">{{synonim.word}}</p>
+</ng-container>
+  
+  
+</div>

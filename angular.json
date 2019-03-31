@@ -1,19 +1,28 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
+  "newProjectRoot": "src",
   "projects": {
-    "agileengine-task": {
+    "ae-frontend-texteditor-angular-skeleton": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "prefix": "app",
+          "styleext": "scss"
+        },
+        "@schematics/angular:directive": {
+          "prefix": "app"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/agileengine-task",
+            "outputPath": "dist/ae-frontend-texteditor-angular-skeleton",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,7 +32,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -43,32 +52,25 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
+              "buildOptimizer": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "agileengine-task:build"
+            "browserTarget": "ae-frontend-texteditor-angular-skeleton:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "agileengine-task:build:production"
+              "browserTarget": "ae-frontend-texteditor-angular-skeleton:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "agileengine-task:build"
+            "browserTarget": "ae-frontend-texteditor-angular-skeleton:build"
           }
         },
         "test": {
@@ -79,7 +81,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -102,20 +104,19 @@
         }
       }
     },
-    "agileengine-task-e2e": {
+    "ae-frontend-texteditor-angular-skeleton-e2e": {
       "root": "e2e/",
       "projectType": "application",
-      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "agileengine-task:serve"
+            "devServerTarget": "ae-frontend-texteditor-angular-skeleton:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "agileengine-task:serve:production"
+              "devServerTarget": "ae-frontend-texteditor-angular-skeleton:serve:production"
             }
           }
         },
@@ -131,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "agileengine-task"
+  "defaultProject": "ae-frontend-texteditor-angular-skeleton"
 }
