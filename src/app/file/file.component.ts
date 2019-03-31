@@ -25,6 +25,11 @@ export class FileComponent implements OnInit {
     this.synonims$ = this.textService.getSynonims();
   }
 
+  public changeWord(event: Event) {
+    this.textService.selectedWord.innerText =
+      (event.target as HTMLSpanElement).innerText;
+  }
+
   private getMockText() {
     this.text$ = this.textService.getMockText();
   }

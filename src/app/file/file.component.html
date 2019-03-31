@@ -6,7 +6,10 @@
   </span>
 <ng-container *ngIf="!!(synonims$ | async)">
   <h1>Synonims:</h1>
-  <p *ngFor="let synonim of (synonims$ | async)">{{synonim.word}}</p>
+  <p *ngFor="let synonim of (synonims$ | async)"
+    (dblclick)="changeWord($event)">
+    {{synonim.word}}
+  </p>
 </ng-container>
   
   
